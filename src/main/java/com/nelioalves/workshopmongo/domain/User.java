@@ -2,12 +2,18 @@ package com.nelioalves.workshopmongo.domain;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+//@Document menciona que utiliza coleção do mongoDB
+
+@Document(collection="user")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	@Id
 	private String id;
 	private String name;
-	private String Email;
+	private String email;
 	
 	public User() {
 		
@@ -17,7 +23,7 @@ public class User implements Serializable {
 		super();
 		this.id = id;
 		this.name = name;
-		Email = email;
+		this.email = email;
 	}
 
 	public String getId() {
@@ -37,11 +43,11 @@ public class User implements Serializable {
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
 	@Override
