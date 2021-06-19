@@ -55,6 +55,16 @@ public class UserResource {
 		
 		return ResponseEntity.created(uri).build();
 	}
+	
+	//deletar por id
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	public ResponseEntity<UserDTO> delete(@PathVariable String id){
+		
+		service.delete(id);
+		
+		//no corpo da resposta colocamos a lista
+		return ResponseEntity.noContent().build();
+	}
 		
 
 }

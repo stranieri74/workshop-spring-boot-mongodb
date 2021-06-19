@@ -32,6 +32,14 @@ public class UserService {
 		return repo.insert(obj);
 	}
 	
+	//metodo para apagar
+	public void delete(String id) {
+		//chama o find by id para verificar se existe no banco
+		findById(id);
+		repo.deleteById(id);
+	}
+	
+	
 	public User fromDto(UserDTO objDto) {
 		return new User(objDto.getId(),objDto.getName(), objDto.getEmail());
 	}
