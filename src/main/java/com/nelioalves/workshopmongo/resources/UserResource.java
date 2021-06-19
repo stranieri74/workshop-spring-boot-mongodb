@@ -65,6 +65,16 @@ public class UserResource {
 		//no corpo da resposta colocamos a lista
 		return ResponseEntity.noContent().build();
 	}
+	
+	// atualizar usuario
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody UserDTO objDTO, @PathVariable String id){
+		
+		User obj = service.fromDto(objDTO);
+		obj.setId(id);
+		obj = service.update(obj);
+		return ResponseEntity.noContent().build();
+	}
 		
 
 }
